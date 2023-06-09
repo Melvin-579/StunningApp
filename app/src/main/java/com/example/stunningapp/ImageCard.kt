@@ -1,5 +1,6 @@
 package com.example.stunningapp
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -22,7 +23,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImagePainter.State.Empty.painter
 import coil.compose.rememberAsyncImagePainter
 import kotlin.random.Random
 @Composable
@@ -31,6 +35,7 @@ fun ImageCard(
     title: String,
     description: String,
     modifier: Modifier = Modifier
+
 ) {
     Card(
         modifier = modifier,
@@ -40,9 +45,7 @@ fun ImageCard(
         shape = MaterialTheme.shapes.large
     ) {
         Image(
-            painter = rememberAsyncImagePainter(
-                model = "https://picsum.photos/seed{Random.nextInt()}/300/200"
-            ),
+            painter = painterResource(id = R.drawable.neo),
             contentDescription = null,
             modifier = Modifier
                 .clip(MaterialTheme.shapes.large)
